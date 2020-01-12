@@ -1,4 +1,51 @@
-.app {
+@import url('https://fonts.googleapis.com/css?family=Rubik|Titillium+Web&display=swap');
+
+@import './variables.scss';
+@import './components/cards';
+@import './components/banner';
+
+@import './layouts/cars_index';
+
+// p, h3, h2 {
+//   color: $dark;
+// }
+
+a:hover {
+  color: $dark-purple;
+}
+
+h3, h2 {
+  font-family: 'Titillium Web', sans-serif;
+}
+
+p {
+  font-family: 'Rubik', sans-serif;
+}
+
+.container {
   margin-top: 20px;
   margin-bottom: 20px;
+  width:95vw;
+}
+
+.flex {
+  display: flex;
+}
+
+a.card-link {
+  color: inherit;
+  transition: 0.3s;
+  &:hover {
+    text-decoration: none;
+    color: $dark-purple;
+  }
+  &:link {
+    text-decoration: none;
+  }
+  &:active {
+    text-decoration: none;
+  }
+  &:visited {
+    text-decoration: none;
+  }
 }

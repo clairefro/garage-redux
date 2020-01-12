@@ -13,7 +13,8 @@ import CarsIndex from './containers/cars_index';
 
 import '../assets/stylesheets/application.scss';
 
-const garageName = window.prompt('What is your garage?') || `garage${Math.floor(10 + (Math.random() * 90))}`;
+// const garageName = window.prompt('What is your garage?') || `garage${Math.floor(10 + (Math.random() * 90))}`;
+const garageName = 'chunkys';
 
 const initialState = {
   garage: garageName,
@@ -23,9 +24,10 @@ const initialState = {
     { id: 3, brand: 'Aston Martin', model: 'DB Mark III', owner: 'James', plate: '418-ED-94' },
     { id: 4, brand: 'VW', model: 'Beetle', owner: 'George', plate: '1234-XD-75' }
   ]
-}
+};
+
 const reducers = combineReducers({
-  garage: (state = null, action) => state,
+  garage: (state = initialState.garage, action) => state,
   cars: carsReducer
 });
 
@@ -36,7 +38,7 @@ ReactDOM.render(
   <Provider store={createStore(reducers, initialState, middlewares)}>
     <Router history={history}>
       <Switch>
-        <Route path="/cars" component={CarsIndex} />
+        <Route path="/" component={CarsIndex} />
       </Switch>
     </Router>
   </Provider>,
