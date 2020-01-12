@@ -3,7 +3,13 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { bindActionCreators } from 'redux';
 
+import { fetchCars } from '../actions';
+
 class CarsIndex extends Component {
+  componentWillMount() {
+    this.props.fetchCars(this.props.garage);
+  }
+
   renderCars() {
     return this.props.cars.map((car) => {
       return (
@@ -50,4 +56,8 @@ function mapStateToProps(reduxState) {
   };
 }
 
-export default connect(mapStateToProps)(CarsIndex);
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators({ fetchCars }, dispatch);
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(CarsIndex);
